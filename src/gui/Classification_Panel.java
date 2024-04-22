@@ -12,7 +12,7 @@ import java.awt.Image;
 import components.*;
 
 /**
- * This class represents the classification window that displays the room classifications that the hotel has.
+ * This class represents the classification window that displays the room classifications that the hotel is offering, it can be modified to proper use
  * It contains a constructor for initializing the size and the layout of the panel, and the buttons.
  * It also contains four buttons for each room classification.
  */
@@ -26,7 +26,7 @@ public class Classification_Panel extends JPanel {
 	public Button btnFamily;
 	public Button btnStandard;
 	
-	//Constructor for Classification_Panel class.
+	//Constructor for Classification_Panel class, which is the properties/style of the panel
 	public Classification_Panel() {
 		//Set the size and layout of the panel.
 		setBounds(100, 100, 1100, 670);
