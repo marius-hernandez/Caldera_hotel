@@ -36,6 +36,7 @@ public class Main_Frame extends JFrame {
 
 	private CardLayout cObjl;  
 	private JPanel cPanel;
+	
 	// Declaration of panel objects for the GUI
 	private Welcome_Panel pnl_welcome;
 	private Classification_Panel pnl_classification;
@@ -58,7 +59,7 @@ public class Main_Frame extends JFrame {
 	
 	//construction for main_frame
 	public Main_Frame() {
-			// Modification of the main frame window properties
+		// Modification of the main frame window properties
 		    setUndecorated(true);
 		    setVisible(true);
 		    DragListener drag = new DragListener();
@@ -67,7 +68,7 @@ public class Main_Frame extends JFrame {
 		    getContentPane().setBackground(new Color(255, 255, 255));
 		    setTitle("Caldera Hotel");
 		    setBounds(140, 10, 1090, 675);
-		    Image iconImage = Toolkit.getDefaultToolkit().getImage("images/icon.png");
+		    Image iconImage = Toolkit.getDefaultToolkit().getImage("images/icon.png"); //landing page path
 		    setIconImage(iconImage);
 
 		    // Instantiate the reservation class to encapsulate data
@@ -169,14 +170,14 @@ public class Main_Frame extends JFrame {
 	public ActionListener createButtonActionListener(int panelNumber, String classification, String path) {
 	    return new ActionListener() {
 	        public void actionPerformed(ActionEvent ae) {
-	            cObjl.show(cPanel, "" + panelNumber);
+	            cObjl.show(cPanel, "" + panelNumber); //show the current page based on the navigation of user
 	            if (classification != null) {
 	            	// Set the classification and image path for the reservation and room info panel
 	            	reservation.setClassification(classification);	 
 	                pnl_roomInfo.classification= classification;
 	                pnl_roomInfo.setImagePath(path);
 	                
-	                //try catch for selecting data to database
+	                //try catch for selecting data to database, mysql database should be active before use
 	                try {
 	                    String query = "SELECT * FROM room WHERE Classification='" + classification + "' AND isOccupied=''";
 	                    pnl_roomInfo.updateResultPages(DBConnection.selectDataFromDB(query));
@@ -185,7 +186,7 @@ public class Main_Frame extends JFrame {
 	                }
 
 	            }
-	            
+	            // to save the reservation if the user reaches the end of the page
 	            else if(panelNumber==9) {
 	            	// Insert the reservation into the database and clear form data
 	            	DBConnection.insertReservation(reservation);
