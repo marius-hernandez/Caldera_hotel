@@ -8,7 +8,7 @@ One of the main advantages of this system is its online reservation process, whi
 
 Integrating the hotel reservation system brings several benefits from a business perspective. It improves customer service over time and increases operational efficiency. By adopting this system, hotels can better serve their customers and optimize internal processes, resulting in higher customer satisfaction and increased profits.
 
-##Skills obtained
+#Skills obtained
 -Clean code practices
 -Cybersecurity best practices
 -Access controls
